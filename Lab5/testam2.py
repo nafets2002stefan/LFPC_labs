@@ -167,6 +167,8 @@ def parsing_table(first, follow, dictionary):
 
 
 def lastStep(word, table_of_parsing):
+    lista_stack=[]
+    lista_input=[]
     stack = "$S"
     input = word + '$'
     dict = {}
@@ -188,8 +190,14 @@ def lastStep(word, table_of_parsing):
 
         dict['Stack'].append(stack)
         dict['Input'].append(input)
-        print("Stack is :" + stack + "  Input is :" + input)
-    print("Stack is :" + stack + "  Input is :" + input)
+        lista_stack.append(stack)
+        lista_input.append(input)
+
+    lista_stack.reverse()
+    lista_input.reverse()
+
+    for i in range (len(lista_input)):
+        print("Stack is :" + lista_stack[i] + "  Input is :" + lista_input[i])
     print(tabulate(dict, headers=["Stack", "Input"], tablefmt="fancy_grid"))
 
 
@@ -221,7 +229,7 @@ print(tabulate(table, headers="keys", tablefmt="fancy_grid"))
 table_of_parsing = parsing_table(first, follow, rules_lf)
 print(table_of_parsing)
 
-word = "adbaacbaaa"
+word = "dbaacbaaa"
 
 check_Grammar(word, table_of_parsing)
 
