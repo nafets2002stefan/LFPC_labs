@@ -1,0 +1,13 @@
+int add(int i , int j) {
+    return i + j;
+    }
+
+int multiply(int i , int j){
+    return add(i , i * j);
+}
+
+int main() {
+
+    print("multiply(2,3) = " , multiply(2 , 6));
+    return 0;
+}
